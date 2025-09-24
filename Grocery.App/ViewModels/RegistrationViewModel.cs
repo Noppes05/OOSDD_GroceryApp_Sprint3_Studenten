@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Grocery.App.Views;
 using Grocery.Core.Interfaces.Services;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,12 @@ namespace Grocery.App.ViewModels
             {
                 RegistrationMessage = errorMessage;
             }
+        }
+
+        [RelayCommand]
+        public async Task NavigateToLogin()
+        {
+            Application.Current.MainPage = new LoginView(new LoginViewModel(_authService, new GlobalViewModel()));
         }
     }
 }

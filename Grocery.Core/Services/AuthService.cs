@@ -21,12 +21,12 @@ namespace Grocery.Core.Services
 
         public bool Register(string? name, string? email, string? password, out string errorMessage)
         {
-            if (email == null && password == null && name == null)
+            if (email == null || password == null || name == null)
             {
                 errorMessage = "Vul alle velden in.";
                 return false;
             }
-            if (_clientService.Get(email) == null) 
+            if (_clientService.Get(email) != null) 
             {
                 errorMessage = $"er bestaat al een account met deze emailaddress:{email}";
                 return false;
