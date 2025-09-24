@@ -86,5 +86,26 @@ namespace Grocery.App.ViewModels
             }
         }
 
+
+        [RelayCommand]
+        public void Search(string searchText)
+        {
+            if (searchText == "")
+            {
+                GetAvailableProducts();
+                return;
+            }
+            AvailableProducts.Clear();
+            IEnumerable<Product> searched = _productService.GetAll().
+                Where(p => p.name.StartsWith(searchText, StringComparison.OrdinalIgnoreCase));
+
+            foreach (Product p in searched)
+            {
+                if (MyGroceryListItems.FirstOrDefault(g => g.ProductId == p.Id) == null && p.Stock > 0)
+                    AvailableProducts.Add(p);
+            }
+
+        }
+
     }
 }
