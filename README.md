@@ -43,8 +43,12 @@ Aanvullen:
 - Zorg dat de SearchCommand wordt gebonden aan een functie in het onderliggende ViewModel (GroceryListItemsViewModel) en dat de zoekterm die in het zoekveld is ingetypt gebruikt wordt als parameter (SearchCommandParameter).  
 - Werk in het viewModel (GroceryListItemsViewModel) de zoekfunctie uit en zorg dat de beschikbare producten worden gefilterd op de zoekterm!  
 
-## UCx Registratie gebruiker 
-Of een ander idee zelf uitwerken. Dit betekent ook dat de documentatie hiervoor ontwikkeld moet worden.
-
+## UC09 Registratie gebruiker 
+Aanpassen:
+- Toevoegen van registratie View, inclusief ViewModel.
+- Register functie in viewmodel maken en Binden met de knop 'Registreren'. niet vergeten om het wachtwoord te hashen.
+- Toevoegen van add functie in ClientRepository.
+- button plaatsen op log in scherm om naar registratie view te gaan.
+- **Belangrijk** goed checken of velden zijn ingevuld en checken of email niet al gebruikt is door een andere gebruiker
   
 
