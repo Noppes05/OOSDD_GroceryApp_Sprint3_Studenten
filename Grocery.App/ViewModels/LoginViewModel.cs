@@ -41,5 +41,11 @@ namespace Grocery.App.ViewModels
                 LoginMessage = "Ongeldige inloggegevens.";
             }
         }
+
+        [RelayCommand]
+        private async Task NavigateToRegister()
+        {
+            await Shell.Current.GoToAsync(nameof(RegistrationViewModel));
+        }
     }
 }

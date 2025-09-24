@@ -18,5 +18,31 @@ namespace Grocery.Core.Services
             if (PasswordHelper.VerifyPassword(password, client.Password)) return client;
             return null;
         }
+
+        public bool Register(string? name, string? email, string? password, out string errorMessage)
+        {
+            if (email == null && password == null && name == null)
+            {
+                errorMessage = "Vul alle velden in.";
+                return false;
+            }
+            if (_clientService.Get(email) == null) 
+            {
+                errorMessage = $"er bestaat al een account met deze emailaddress:{email}";
+                return false;
+            }
+            string hashedPassword = PasswordHelper.HashPassword(password);
+            int id = _clientService.GetAll().Max(c => c.Id);
+            Client newClient = new(id + 1, name, email, hashedPassword);
+            bool status = _clientService.Add(newClient);
+            if (!status)
+            {
+                errorMessage = "Er is iets misgegaan bij het aanmaken van uw account, probeer het later opnieuw.";
+                return false;
+            }
+            errorMessage = string.Empty;
+            return true;
+
+        }
     }
 }
