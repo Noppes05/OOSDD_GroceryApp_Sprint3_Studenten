@@ -4,7 +4,7 @@
              x:Class="Grocery.App.Views.RegistrationView"
              Title="RegistrationView">
     <StackLayout Padding="50" VerticalOptions="Center">
-        <Label Text="Register" FontSize="24" HorizontalOptions="Center" />
+        <Label Text="Register" VerticalOptions="Start" FontSize="52" HorizontalOptions="Center" />
         <Entry Placeholder="Name" Text="{Binding Name}" />
         <Entry Placeholder="Email" Margin="0,10,0,0" Text="{Binding Email}" Keyboard="Email" />
         <Entry Placeholder="Password" Margin="0,10,0,0" Text="{Binding Password}" IsPassword="True" />
