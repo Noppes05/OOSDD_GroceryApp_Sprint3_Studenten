@@ -28,7 +28,7 @@ namespace Grocery.Core.Services
             }
             if (_clientService.Get(email) != null) 
             {
-                errorMessage = $"er bestaat al een account met deze emailaddress: {email}";
+                errorMessage = $"er bestaat al een account met dit emailaddress: {email}";
                 return false;
             }
             string hashedPassword = PasswordHelper.HashPassword(password);
